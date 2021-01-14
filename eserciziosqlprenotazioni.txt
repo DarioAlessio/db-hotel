@@ -42,8 +42,9 @@ SELECT *
 
 ●Quanti paganti sono anche ospiti?
 soluzione:
-SELECT COUNT(*) ospiti_id 
- FROM ospiti
+ SELECT *
+  FROM paganti
+  WHERE ospiti_id  <> 'NULL' 
 
 
 ●Quanti posti letto ha l’hotel in totale?
