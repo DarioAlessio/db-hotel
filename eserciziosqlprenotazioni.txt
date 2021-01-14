@@ -123,3 +123,9 @@ HAVING stanze.floor = 1
 soluzione:
 
 ●Le stanze sono state tutte prenotate almeno una volta? (Visualizzare le stanze non ancora prenotate)
+soluzione:
+SELECT stanze.id AS'stanze_non_prenotate' 
+FROM prenotazioni 
+  RIGHT JOIN stanze 
+     ON prenotazioni.stanza_id = stanze.id 
+WHERE prenotazioni.stanza_id IS NULL
