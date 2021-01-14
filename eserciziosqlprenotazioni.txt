@@ -107,6 +107,14 @@ FROM prenotazioni_has_ospiti
 
 ●Stampare Nome, Cognome, Prezzo e Pagante per tutte le prenotazioni fatte a Maggio 2018
 soluzione:
+SELECT ospiti.created_at, ospiti.updated_at , ospiti.name, ospiti.lastname, paganti.name, pagamenti.price 
+FROM pagamenti 
+  JOIN paganti 
+    ON pagamenti.pagante_id = paganti.id 
+  JOIN ospiti 
+    ON paganti.ospite_id = ospiti.id 
+WHERE ospiti.created_at < '2018-06-01' AND ospiti.updated_at > '2018-05-01'
+
 
 ●Fai la somma di tutti i prezzi delle prenotazioni per le stanze del primo piano
 soluzione:
