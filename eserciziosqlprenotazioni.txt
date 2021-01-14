@@ -109,5 +109,17 @@ FROM prenotazioni_has_ospiti
 soluzione:
 
 ●Fai la somma di tutti i prezzi delle prenotazioni per le stanze del primo piano
+soluzione:
+SELECT stanze.floor, SUM(price) AS'totale_prezzi' 
+FROM pagamenti 
+  JOIN prenotazioni 
+    ON pagamenti.prenotazione_id = prenotazioni.id 
+  JOIN stanze 
+    ON prenotazioni.stanza_id = stanze.id 
+GROUP BY stanze.floor 
+HAVING stanze.floor = 1
+
 ●Prendi i dati di fatturazione per la prenotazione con id=7
+soluzione:
+
 ●Le stanze sono state tutte prenotate almeno una volta? (Visualizzare le stanze non ancora prenotate)
