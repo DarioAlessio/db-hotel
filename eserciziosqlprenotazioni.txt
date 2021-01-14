@@ -1,8 +1,8 @@
 ●Seleziona tutti gli ospiti che sono stati identificati con la carta di identità
 soluzione:
-SELECT document_type 
+SELECT *
  FROM ospiti
- WHERE document_type LIKE 'ci'.
+ WHERE document_type LIKE 'ci'
 
 ●Seleziona tutti gli ospiti che sono nati dopo il 1988
 soluzione:
