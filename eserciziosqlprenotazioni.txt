@@ -6,9 +6,9 @@ SELECT document_type
 
 ●Seleziona tutti gli ospiti che sono nati dopo il 1988
 soluzione:
-SELECT name, lastname, YEAR(date_of_birth) AS 'year_of_birth', YEAR( NOW()) AS 'actual_year', YEAR( NOW()) - YEAR(date_of_birth) AS'age_now' 
+SELECT *
  FROM ospiti 
- WHERE YEAR(NOW()) - YEAR(date_of_birth) > 33
+ WHERE YEAR(date_of_birth) > 1988
 
 ●Seleziona tutti gli ospiti che hanno più di 20 anni (al momento dell’esecuzione della query)
 soluzione:
@@ -36,9 +36,9 @@ SELECT MAX(Price)
 
 ●Seleziona gli ospiti riconosciuti con patente e nati nel 1975
 soluzione:
-SELECT YEAR("1975-01-01"), name,lastname 
+SELECT *
  FROM ospiti 
- WHERE document_type LIKE 'driver_license'
+ WHERE document_type LIKE 'driver_license' AND YEAR('date_of_birth') = 1975
 
 ●Quanti paganti sono anche ospiti?
 soluzione:
@@ -72,9 +72,9 @@ SELECT stanza_id AS'numero_stanza', COUNT(*) AS 'numero_di_prenotazioni'
 
 ●Fai una analisi per vedere se ci sono ore in cui le prenotazioni sono più frequenti
 soluzione:
-SELECT HOUR(created_at) AS 'ora_prenotazioni' 
+SELECT HOUR(created_at) AS 'ora_prenotazioni', COUNT(*) AS'risultato' 
  FROM prenotazioni 
-  GROUP BY HOUR(created_at)
+ GROUP BY HOUR(created_at)
 
 ●Quante prenotazioni ha fatto l’ospite che ha fatto più prenotazioni?
 soluzione:
